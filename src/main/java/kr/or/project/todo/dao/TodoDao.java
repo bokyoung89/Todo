@@ -14,7 +14,42 @@ public class TodoDao {
 	private static String dbUser = "shin";
 	private static String dbpasswd = "1234";
 	
-	public TodoDto getTodoDto(long todoId) {
+	public int addTodo(TodoDto todo) {
+		int insertCount = 0;
+		
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+			String sql = "INSERT INTO todo (title, name, sequence) VALUES (?, ?, ?)";
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, todo.getTitle());
+			ps.setString(2, todo.getName());
+			ps.setInt(3, todo.getSequence());
+
+			insertCount = ps.executeUpdate();
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(ps != null) {
+				try {
+					ps.close();
+				} catch (Exception ex) {} 
+		} //if
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (Exception ex) {}
+		} //if 
+	} //finally
+	return insertCount;
+}
+	
+	public TodoDto getTodo(long todoId) {
 		TodoDto todo = null;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -25,6 +60,7 @@ public class TodoDao {
 			conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 			String sql = "SELECT id,name,regDate,sequence,title,type FROM todo where id = ?";
 			ps = conn.prepareStatement(sql);
+			
 			ps.setLong(1, todoId);
 			rs = ps.executeQuery();
 			
