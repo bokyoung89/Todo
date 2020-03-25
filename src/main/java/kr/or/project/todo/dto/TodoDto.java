@@ -1,7 +1,16 @@
+/*
+ * 2020-03-24
+ * 1) AUTO_INCREMENT : table을 생성할때 옵션으로 줄 수 있다. insert문을 보낼때 마다 자동으로 num값이 증가되게 저장할 수 있다.
+ * 2) @override 통해 toString 하는 이유? 리턴값을 통해 결과값을 확인할 수 있다.
+ *
+ *
+ *
+ */
+
 package kr.or.project.todo.dto;
 
 public class TodoDto {
-	private Long id;
+	private long id;
 	private String name;
 	private String regDate;
 	private int sequence;
@@ -12,7 +21,7 @@ public class TodoDto {
 		
 	}
 	
-	public TodoDto(Long id, String name, String regDate, int sequence, String title, String type) {
+	public TodoDto(long id, String name, String regDate, int sequence, String title, String type) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,11 +31,11 @@ public class TodoDto {
 		this.type = type;	
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
