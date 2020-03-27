@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+h1{
+	font-family : Dotum;
+	color : #026e7b;
+	transform : rotate(-30deg);
+}

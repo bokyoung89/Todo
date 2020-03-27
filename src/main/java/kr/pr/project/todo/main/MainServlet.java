@@ -22,15 +22,16 @@ public class MainServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		TodoDao dao = new TodoDao();
 		List<TodoDto> list = dao.getTodos();
 		
-		PrintWriter out = response.getWriter();
-		
-		out.println(list);
-		out.close();
+		request.setAttribute("todo", list);
+
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/main.jsp");
+        requestDispatcher.forward(request, response);
+        
 	 
 	}
 }
