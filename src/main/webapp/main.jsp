@@ -35,7 +35,7 @@
 		</c:if>
 	</c:forEach>
 	<p class="title">나의 해야할 일들</p>
-	<p class="new">새로운 TODO 등록</p>
+	<p class="new"><a href="<%=path%>/form">새로운 TODO 등록</a></p>
 	<div class="flex-container">
 		<div class="list" id="TODO">
 			<p>TODO</p>

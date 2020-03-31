@@ -7,6 +7,7 @@
 
 body{
 	width: 60%;
+	margin: auto;
 }
 
 .title{
@@ -22,6 +23,10 @@ body{
 	background-color: #50b3dc;
 	padding: 10px 40px;
 	color: #fff;
+}
+
+a{
+	text-deco
 }
 .flex-container{
     clear:both;

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	margin: auto;
+	width: 30%;
+}
+h2{
+	text-align : center;
+	margin : 20px;
+}
+
+.que{
+	margin-bottom: 2px;
+}
+
+input{
+	padding: 10px 0 10px 0;
+}
+
+input[name="what"]{
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom : 20px;
+}
+
+input[name="who"] {
+	width: 20%;
+	box-sizing: border-box;
+	margin-bottom : 20px;
+}
+
+input[type="radio"]{
+	width: 5%;
+	margin-bottom: 40px;
+}
+
+span{
+	margin-right: 20px;
+}
+
+.bottom{
+	width: 100%;
+	margin: 0;
+	overflow:auto;
+}
+
+.buttons{
+	width: 100px;
+	color: #fff;
+	background-color: rgb(29, 178, 236);
+	text-align: center;
+}
+
+.buttons:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+input[type=button]{
+	background-color: #fff;
+	color: #000;
+	border: 1px solid black;
+	color: black;
+}
+
+input[type=reset]{
+	float: right;
+	border: none;
+	margin-right: 10px;	
+}
+
+input[type=submit]{
+	float: right;
+	border: none;
+	margin-right: 0;
+}
+
