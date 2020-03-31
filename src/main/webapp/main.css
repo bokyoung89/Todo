@@ -4,8 +4,52 @@
 	margin: 0;
 	padding: 0;
 }
-h1{
-	font-family : Dotum;
-	color : #026e7b;
-	transform : rotate(-30deg);
+
+body{
+	width: 60%;
 }
+
+.title{
+	transform : rotate(-30deg);
+	position : absolute;
+	font-size : 150%;
+	color: #008B8B;
+}
+
+.new{
+	float : right;
+	display : block;
+	background-color: #50b3dc;
+	padding: 10px 40px;
+	color: #fff;
+}
+.flex-container{
+    clear:both;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.list{
+	width: 250px;
+}
+
+.list > p:first-child{
+    text-align: left;
+    background-color: #008080;
+    color: #fff;
+}
+
+.list > p:nth-child(n+2){
+    text-align: left;
+    background-color: #B0E0E6;
+    color: #000;
+    padding : 30px 20px;
+}
+
+.list > p{
+    background-color:rgb(182, 211, 235);
+    color:rgb(29, 178, 236);
+    margin:5px 2.5px;
+    padding: 20px;
+} 
+

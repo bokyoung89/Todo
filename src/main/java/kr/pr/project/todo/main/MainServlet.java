@@ -11,12 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.or.project.todo.dao.TodoDao;
 import kr.or.project.todo.dto.TodoDto;
 
-@WebServlet("/MainServlet")
+@WebServlet("/main")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public MainServlet() {
@@ -32,14 +31,6 @@ public class MainServlet extends HttpServlet {
 		request.setAttribute("todo", list);
 
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/main.jsp");
-        requestDispatcher.forward(request, response);
-        
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(list);
-        
-        PrintWriter out = response.getWriter();
-        out.println(json);
-        out.close();
-	 
+		requestDispatcher.forward(request, response);
 	}
 }
