@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-*{
-	margin: 0;
-	padding: 0;
-}
-
 body{
 	width: 60%;
 	margin: auto;
@@ -26,7 +21,12 @@ body{
 }
 
 a{
-	text-deco
+	color: #fff;
+	text-decoration : none;
+}
+
+.new:hover{
+	cursor : pointer;
 }
 .flex-container{
     clear:both;
@@ -34,11 +34,16 @@ a{
     justify-content: flex-end;
 }
 
+#TODO{
+	margin-left: 50px;
+}
+
 .list{
-	width: 250px;
+	width: 350px;
 }
 
 .list > p:first-child{
+	font-size : 150%;
     text-align: left;
     background-color: #008080;
     color: #fff;
@@ -52,9 +57,31 @@ a{
 }
 
 .list > p{
+	font-size : 85%;
     background-color:rgb(182, 211, 235);
     color:rgb(29, 178, 236);
     margin:5px 2.5px;
     padding: 20px;
 } 
+
+.item-title{
+	color: black;
+	font-weight: bold;
+	padding-bottom : 5px;
+	font-size : 120%;
+}
+
+.button{
+	display: inline-block;
+	flaot: right;
+	box-sizing : border-box;
+	border : 1px solid rgba(255, 255, 255, 0.726);
+	background-color: seashell;
+	padding: 1px 3px;
+}
+
+.button:hover{
+	border : 1px soild rgba(255, 255, 255, 0.322);
+	cursor: pointer;
+}
 

@@ -16,7 +16,7 @@ public class TodoDao {
 	private static String dbUser = "shin";
 	private static String dbpasswd = "1234";
 	
-	public List<TodoDto> getTodos(){
+	public List<TodoDto> getTodos(){ //getTodos 테이블 전체 조회
 		List<TodoDto> list = new ArrayList<>();
 		
 		try {
@@ -26,7 +26,7 @@ public class TodoDao {
 		}
 		
 		
-		String sql = "SELECT id,name,regDate,sequence,title,type FROM todo order by id desc";
+		String sql = "SELECT id,title,name,sequence,type,regdate FROM todo ORDER BY regdate desc";
 		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
 			
@@ -51,42 +51,61 @@ public class TodoDao {
 		return list;
 	}
 	
-	public int addTodo(TodoDto todo) {
-		int insertCount = 0;
+	public int addTodo(TodoDto todo) { //addTodos insert문으로 데이터 한 건 입력
 		
-		Connection conn = null;
-		PreparedStatement ps = null;
+		int insertCount = 0;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
-			String sql = "INSERT INTO todo (title, name, sequence) VALUES (?, ?, ?)";
-			ps = conn.prepareStatement(sql);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		String sql = "INSERT INTO todo (title, name, sequence) VALUES (?, ?, ?)";
+		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+			PreparedStatement ps = conn.prepareStatement(sql)){
 			
 			ps.setString(1, todo.getTitle());
 			ps.setString(2, todo.getName());
 			ps.setInt(3, todo.getSequence());
 
-			insertCount = ps.executeUpdate();
-			
-		} catch (Exception ex) {
+			insertCount = ps.executeUpdate();	
+		} catch(Exception ex){
 			ex.printStackTrace();
-		}finally {
-			if(ps != null) {
-				try {
-					ps.close();
-				} catch (Exception ex) {} 
-		} //if
-			if(conn != null) {
-				try {
-					conn.close();
-				} catch (Exception ex) {}
-		} //if 
-	} //finally
+		}
 	return insertCount;
 }
+
+	public int updateTodo(TodoDto todo) { //updateTodo 데이터 수정(type)
+		
+		int updateCount = 0;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		String sql = null;
+		if(todo.getType().equals("TODO")) {
+			sql = "UPDATE todo set type = 'DOING' where id = ?";
+		} else { //"DOING"
+			sql = "UPDATE todo set type = 'DONE' where id = ?";
+		}
+		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+				PreparedStatement ps = conn.prepareStatement(sql)){
+			
+				ps.setString(1, todo.getType());
+				ps.setLong(2, todo.getId());
+				
+				updateCount = ps.executeUpdate();
+			} catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return updateCount;
+	}
 	
-	public TodoDto getTodo(long todoId) {
+	public TodoDto getTodo(long todoId) { //getTodo 데이터 한 건 조회
 		TodoDto todo = null;
 		Connection conn = null;
 		PreparedStatement ps = null;
