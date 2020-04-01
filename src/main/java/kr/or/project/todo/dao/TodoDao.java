@@ -26,7 +26,7 @@ public class TodoDao {
 		}
 		
 		
-		String sql = "SELECT id,title,name,sequence,type,regdate FROM todo ORDER BY regdate desc";
+		String sql = "SELECT id,name,regDate,sequence, title, type FROM todo ORDER BY sequence";
 		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
 			
