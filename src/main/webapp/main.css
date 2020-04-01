@@ -1,13 +1,14 @@
 @charset "UTF-8";
 
 body{
-	width: 80%;
-	margin: auto;
+	margin: 10px;
 }
 
 .title{
 	transform : rotate(-30deg);
 	position : absolute;
+	float: left;
+	pddding-top: 18px;
 	font-size : 150%;
 	color: #008B8B;
 }
@@ -15,6 +16,7 @@ body{
 .new{
 	float : right;
 	display : block;
+	text-align:center;
 	background-color: #50b3dc;
 	padding: 10px 40px;
 	color: #fff;
@@ -39,7 +41,7 @@ a{
 }
 
 .list{
-	width: 350px;
+	width: 30%;
 }
 
 .list > p:first-child{
