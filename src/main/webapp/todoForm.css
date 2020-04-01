@@ -13,7 +13,7 @@ h2{
 	margin : 20px;
 }
 
-.que{
+label{
 	margin-bottom: 2px;
 }
 
@@ -21,13 +21,13 @@ input{
 	padding: 10px 0 10px 0;
 }
 
-input[name="what"]{
+input[name="title"]{
 	width: 100%;
 	box-sizing: border-box;
 	margin-bottom : 20px;
 }
 
-input[name="who"] {
+input[name="name"] {
 	width: 20%;
 	box-sizing: border-box;
 	margin-bottom : 20px;
