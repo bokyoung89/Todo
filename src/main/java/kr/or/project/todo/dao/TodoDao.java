@@ -26,7 +26,7 @@ public class TodoDao {
 		}
 		
 		
-		String sql = "SELECT id,name,regDate,sequence, title, type FROM todo ORDER BY sequence";
+		String sql = "SELECT id,name,regDate,sequence, title, type FROM todo ORDER BY regDate DESC";
 		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
 			
@@ -53,7 +53,7 @@ public class TodoDao {
 	
 	public int addTodo(TodoDto todo) { //addTodos insert문으로 데이터 한 건 입력
 		
-		int insertCount = 0;
+		int addCount = 0;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -69,11 +69,11 @@ public class TodoDao {
 			ps.setString(2, todo.getName());
 			ps.setInt(3, todo.getSequence());
 
-			insertCount = ps.executeUpdate();	
+			addCount = ps.executeUpdate();	
 		} catch(Exception ex){
 			ex.printStackTrace();
 		}
-	return insertCount;
+	return addCount;
 }
 
 	public int updateTodo(TodoDto todo) { //updateTodo 데이터 수정(type)
