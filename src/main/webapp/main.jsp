@@ -25,7 +25,7 @@
 				<c:if test="${item.getType() == 'TODO'}">
 					<p>
 						<span class="item-title">${item.getTitle()}</span></br>
-						<fmt:parseDate value="${item.getRegDate()}" var="parsedDate" pattern="yyyy-MM-ss HH:mm:ss.S"/>
+						<fmt:parseDate value="${item.getRegDate()}" var="parsedDate" pattern="yyyy-MM-dd HH:mm:ss.S"/>
 							등록날짜: <fmt:formatDate value="${parsedDate}" pattern="yyyy. MM. dd"/>,
 							${item.getName()},
 							우선순위 ${item.getSequence()}
@@ -40,7 +40,7 @@
 				<c:if test="${item.getType() == 'DOING'}">
 					<p>
 						<span class="item-title">${item.getTitle()}</span></br>
-						<fmt:parseDate value="${item.getRegDate()}" var="parsedDate" pattern="yyyy-MM-ss HH:mm:ss.S"/>
+						<fmt:parseDate value="${item.getRegDate()}" var="parsedDate" pattern="yyyy-MM-dd HH:mm:ss.S"/>
 							등록날짜: <fmt:formatDate value="${parsedDate}" pattern="yyyy. MM. dd"/>,
 							${item.getName()},
 							우선순위 ${item.getSequence()}
@@ -55,7 +55,7 @@
 				<c:if test="${item.getType() == 'DONE'}">
 					<p>
 						<span class="item-title">${item.getTitle()}</span></br>
-						<fmt:parseDate value="${item.getRegDate()}" var="parsedDate" pattern="yyyy-MM-ss HH:mm:ss.S"/>
+						<fmt:parseDate value="${item.getRegDate()}" var="parsedDate" pattern="yyyy-MM-dd HH:mm:ss.S"/>
 							등록날짜: <fmt:formatDate value="${parsedDate}" pattern="yyyy. MM. dd"/>,
 							${item.getName()},
 							우선순위 ${item.getSequence()}
@@ -65,7 +65,6 @@
 			</c:forEach>
 		</div>
 	</div>
-	${requestScope.todo[0]}
 <script type="text/javascript" src="<%=path%>/main.js"></script>
 </body>
 </html>
