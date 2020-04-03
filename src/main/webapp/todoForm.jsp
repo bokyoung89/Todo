@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="<%=path%>/todoForm.css"/>
 </body>
 <h2>할일 등록</h2>
-<form action="<%=path%>/add">
+<form action="<%=path%>/add" method="post">
 	<label for="title">어떤 일인가요?</label><br/>
 		<input type="text" name="title" placeholder="swift 공부하기(24자까지)" maxlength="24"><br/>
 	<label for="name">누가 할 일인가요?</label><br/>
